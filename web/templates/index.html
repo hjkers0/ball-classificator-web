@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>⚾🏀🏐</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+  <div class="grid">
+
+    <div class="box">
+
+      <p>Sube una imagen de un balón y te reconoceré a que deporte pertenece :) </p>
+
+      <form action="{{ url_for('predict')}}" method="post" enctype="multipart/form-data">
+        <input type="file" id="myFile" name="uploaded-file" accept=".jpg">
+        <button type="submit" class="btn">Selecciona la imagen</button>
+      </form>
+
+      <p>{{ prediction_text }}</p>
+
+    </div>
+
+  </div>
+  <div class="compare-img">
+    <img src="{{ uploaded_img }}"  alt="uploaded img">
+  </div>
+</body>
+
+</html>
